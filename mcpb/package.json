@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0"
+  },
+  "name": "metadata-mcp-connector-bundle",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

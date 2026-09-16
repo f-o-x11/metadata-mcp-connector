@@ -1,0 +1,33 @@
+{
+  "manifest_version": "0.3",
+  "name": "metadata-mcp-connector",
+  "display_name": "Metadata MCP Connector",
+  "version": "1.0.0",
+  "description": "Connect your Metadata account for B2B advertising performance, audience planning, brand creative, and campaign readiness.",
+  "author": { "name": "Metadata Inc", "url": "https://metadata.io" },
+  "repository": { "type": "git", "url": "https://github.com/f-o-x11/metadata-mcp-connector" },
+  "homepage": "https://metadata.io",
+  "support": "https://help.metadata.io",
+  "privacy_policies": ["https://metadata.io/privacy-policy"],
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": { "METADATA_MCP_TOKEN": "${user_config.metadata_token}" }
+    }
+  },
+  "tools_generated": true,
+  "compatibility": { "platforms": ["darwin", "win32", "linux"], "runtimes": { "node": ">=20" } },
+  "user_config": {
+    "metadata_token": {
+      "type": "string",
+      "title": "Metadata personal access token",
+      "description": "Your own Metadata MCP personal token. Enter the raw token without a Bearer prefix.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}

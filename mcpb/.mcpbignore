@@ -1,0 +1,5 @@
+scripts/
+*.log
+.env*
+*.mcpb
+test-results/
