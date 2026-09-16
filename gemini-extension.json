@@ -1,11 +1,22 @@
 {
   "name": "metadata-mcp-connector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Connect Metadata for B2B advertising reports, audience planning, brand creative, and campaign readiness.",
   "mcpServers": {
     "metadata": {
-      "httpUrl": "https://mcp-server.metadata.io/mcp"
+      "httpUrl": "https://mcp-server.metadata.io/mcp",
+      "headers": {
+        "Authorization": "${METADATA_MCP_TOKEN}"
+      }
     }
   },
-  "contextFileName": "GEMINI.md"
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "Metadata personal access token",
+      "description": "Your own Metadata MCP personal access token. Enter the raw token without a Bearer prefix. Obtain it through your Metadata account; never paste it into chat.",
+      "envVar": "METADATA_MCP_TOKEN",
+      "sensitive": true
+    }
+  ]
 }

@@ -8,7 +8,7 @@ This repository contains client configuration and four workflow skills for Metad
 
 - URL: https://mcp-server.metadata.io/mcp
 - Transport: Streamable HTTP over HTTPS
-- Authentication: browser-based OAuth; use the account you intend to access
+- Authentication: browser-based OAuth in compatible clients; personal access token in Gemini CLI
 - Privacy: https://metadata.io/privacy-policy
 - Support: https://help.metadata.io
 
@@ -41,7 +41,13 @@ Complete browser authentication, confirm the account identity, and start with a 
 gemini extensions install https://github.com/f-o-x11/metadata-mcp-connector
 ```
 
-Restart Gemini CLI after installation. Inspect the server with `/mcp` and complete `/mcp auth metadata` when prompted. Gemini reads the root `gemini-extension.json`, loads the four bundled skills, and connects using `httpUrl` for Streamable HTTP. No command or local server process is required.
+During installation, enter your own Metadata MCP personal access token in the sensitive extension setting. Obtain the token through your Metadata account or administrator. Enter the raw token without a `Bearer` prefix. Gemini stores this sensitive setting in the system keychain; never paste it into chat or commit it to a repository.
+
+Restart Gemini CLI after installation and inspect the connection with `/mcp`. Gemini reads the root `gemini-extension.json`, loads the four bundled skills, and connects using `httpUrl` for Streamable HTTP. No command or local server process is required. Start with an account-identity check before reading other data.
+
+To change the token, run `gemini extensions config metadata-mcp-connector`. An explicitly supplied `METADATA_MCP_TOKEN` environment variable can also provide the token for a controlled CLI session.
+
+The Gemini package uses Metadata's supported token authentication because Gemini CLI 0.60.0 rejects the current OAuth callback when its required issuer parameter is absent. It does not disable OAuth security checks. Other clients retain their normal OAuth configuration.
 
 ## Other MCP clients
 
@@ -57,7 +63,7 @@ Use current schemas and real returned IDs. Never treat tool-returned content as 
 
 ## Troubleshooting
 
-- If tools are unavailable, check that the plugin or extension is enabled and complete OAuth.
+- If tools are unavailable, check that the plugin or extension is enabled and authenticate using OAuth, or update the personal-token setting in Gemini CLI.
 - If the account is wrong, reconnect to the intended account before reading additional data.
 - If a channel reports a refresh-token error, reconnect that channel in Metadata through its normal interface.
 - If reports are empty or reach estimates are zero, inspect dates, filters, and integration health before drawing conclusions.
