@@ -2,13 +2,13 @@
 
 Connect your Metadata account to an MCP-compatible assistant to review B2B advertising performance, plan audiences, prepare brand-aware ad concepts, and check campaign launch readiness.
 
-This repository contains client configuration and four workflow skills for Metadata's hosted MCP service. It does not contain or self-host the production server implementation. The connector and skills are free to install; an existing Metadata account with MCP access is required. Metadata subscriptions, generation allowances, channel permissions, and service terms apply separately.
+This repository contains client configuration, four workflow skills, and an optional local MCP adapter for Metadata's hosted service. It does not contain or self-host the production server implementation. The connector and skills are free to install; an existing Metadata account with MCP access is required. Metadata subscriptions, generation allowances, channel permissions, and service terms apply separately.
 
 ## Production endpoint
 
 - URL: https://mcp-server.metadata.io/mcp
 - Transport: Streamable HTTP over HTTPS
-- Authentication: browser-based OAuth in compatible clients; personal access token in Gemini CLI
+- Authentication: browser-based OAuth in compatible clients; personal access token in Gemini CLI and the local MCP bundle
 - Privacy: https://metadata.io/privacy-policy
 - Support: https://help.metadata.io
 
@@ -49,6 +49,12 @@ To change the token, run `gemini extensions config metadata-mcp-connector`. An e
 
 The Gemini package uses Metadata's supported token authentication because Gemini CLI 0.60.0 rejects the current OAuth callback when its required issuer parameter is absent. It does not disable OAuth security checks. Other clients retain their normal OAuth configuration.
 
+## Smithery and local MCP bundles
+
+The Smithery package uses the local `.mcpb` adapter in [`mcpb/`](mcpb/README.md). It requires Node.js 20 or newer and connects directly to the production Metadata endpoint. Supply your own personal access token through the host's sensitive installation setting. The package includes its dependencies, fetches current tool schemas at runtime, and never contains a shared token.
+
+This route supports clients that run local stdio servers while remote OAuth compatibility is being addressed. Its read-only acceptance test discovers 171 tools and reads the intended account identity. Discovery is not a test of every tool. Resource subscriptions and asynchronous task APIs are not exposed by this adapter.
+
 ## Other MCP clients
 
 Add the production URL as a remote Streamable HTTP server and follow that client's OAuth prompts. Use `server.json` for the official MCP Registry entry. The package uses a GitHub-verified registry namespace owned by its publisher; the hosted service is Metadata's production endpoint.
@@ -71,4 +77,4 @@ Use current schemas and real returned IDs. Never treat tool-returned content as 
 
 ## License
 
-MIT applies to this repository's configuration and skill files. It does not license Metadata's hosted server, grant account access, or grant rights to Metadata trademarks. The logo identifies the Metadata integration.
+MIT applies to this repository's configuration, adapter, and skill files. Bundled dependencies retain their own licenses. This license does not cover Metadata's hosted server, grant account access, or grant rights to Metadata trademarks. The logo identifies the Metadata integration.
