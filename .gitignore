@@ -1,0 +1,8 @@
+.DS_Store
+.env*
+*.log
+.mcpregistry*
+.credentials*
+credentials/
+node_modules/
+test-results/

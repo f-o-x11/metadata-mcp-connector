@@ -1,0 +1,11 @@
+{
+  "name": "metadata-mcp-connector",
+  "version": "1.0.0",
+  "description": "Connect Metadata for B2B advertising reports, audience planning, brand creative, and campaign readiness.",
+  "mcpServers": {
+    "metadata": {
+      "httpUrl": "https://mcp-server.metadata.io/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

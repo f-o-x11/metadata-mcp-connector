@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.f-o-x11/metadata-connector",
+  "title": "Metadata MCP Connector",
+  "description": "Metadata B2B ad reports, audience planning, brand creative, and campaign readiness.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/f-o-x11/metadata-mcp-connector#readme",
+  "repository": {
+    "url": "https://github.com/f-o-x11/metadata-mcp-connector",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp-server.metadata.io/mcp"
+    }
+  ]
+}

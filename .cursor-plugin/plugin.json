@@ -1,0 +1,24 @@
+{
+  "name": "metadata-mcp-connector",
+  "description": "Connect Metadata for B2B advertising reports, audience planning, brand creative, and campaign readiness.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Metadata Inc",
+    "email": "gil@metadata.io"
+  },
+  "homepage": "https://github.com/f-o-x11/metadata-mcp-connector#readme",
+  "repository": "https://github.com/f-o-x11/metadata-mcp-connector",
+  "license": "MIT",
+  "keywords": [
+    "metadata",
+    "marketing",
+    "advertising",
+    "b2b",
+    "mcp",
+    "audiences",
+    "analytics"
+  ],
+  "logo": "assets/metadata-icon.png",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}
