@@ -4,6 +4,14 @@ Connect your Metadata account to an MCP-compatible assistant to review B2B adver
 
 This repository contains client configuration, four workflow skills, and an optional local MCP adapter for Metadata's hosted service. It does not contain or self-host the production server implementation. The connector and skills are free to install; an existing Metadata account with MCP access is required. Metadata subscriptions, generation allowances, channel permissions, and service terms apply separately.
 
+## ChatGPT and Codex
+
+[Install Metadata from the OpenAI plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6aa448b4f7d481918788090d2ebec213).
+
+The published plugin connects Metadata's MCP server and includes four skills: performance review, audience planning, brand creative, and campaign readiness. It exposes 170+ tools for B2B advertising. Open the listing, install the plugin, and connect your Metadata account through OAuth. Start by asking which account is connected, then try a workflow below.
+
+The directory version was verified as published on September 29, 2026, with 171 tools. The same day's production scan returned 178 tools; newer tools may require OpenAI review before they appear in the published plugin. The live server and the directory's approved tool inventory can differ.
+
 ## Production endpoint
 
 - URL: https://mcp-server.metadata.io/mcp
